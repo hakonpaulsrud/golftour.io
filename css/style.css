@@ -1,0 +1,16 @@
+/* Design system – see GOLF-S-0001 (built out in GOLF-T-0005) */
+:root {
+  --green: #0B5A3B;
+  --cream: #F6F1E1;
+  --white: #FFFFFF;
+  --gold: #E4C04A;
+  --ink: #1C2A22;
+  --red: #B3261E;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Georgia, serif;
+}
