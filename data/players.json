@@ -1,0 +1,14 @@
+[
+  { "id": "adam",      "name": "Adam Haglund",       "startHcp": 9.5 },
+  { "id": "andreas-a", "name": "Andreas Andersson",  "startHcp": 22.7 },
+  { "id": "andreas-s", "name": "Andreas Skystedt",   "startHcp": 29.6 },
+  { "id": "erik",      "name": "Erik Ejerfeldt",     "startHcp": 24.7 },
+  { "id": "fredrik",   "name": "Fredrik Karlsson",   "startHcp": 11.1 },
+  { "id": "hakon",     "name": "Håkon Paulsrud",     "startHcp": 20.5 },
+  { "id": "johan-f",   "name": "Johan Fredriksson",  "startHcp": 21.4 },
+  { "id": "johan-n",   "name": "Johan Nordahl",      "startHcp": 8.7 },
+  { "id": "martin",    "name": "Martin Skystedt",    "startHcp": 34.8 },
+  { "id": "mattias-g", "name": "Mattias Göransson",  "startHcp": 11.8 },
+  { "id": "mattias-h", "name": "Mattias Hallberg",   "startHcp": 12.4 },
+  { "id": "theodor",   "name": "Theodor Åkerberg",   "startHcp": 19.8 }
+]

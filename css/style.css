@@ -1,16 +1,616 @@
-/* Design system – see GOLF-S-0001 (built out in GOLF-T-0005) */
+/* Winter Simulator Tour 2026/27 – Augusta/heritage design system (GOLF-S-0001) */
+
 :root {
   --green: #0B5A3B;
+  --green-dark: #07402A;
+  --green-tint: #E3EDE6;
   --cream: #F6F1E1;
+  --cream-dark: #EAE2C9;
   --white: #FFFFFF;
   --gold: #E4C04A;
+  --gold-soft: #F7EBC0;
   --ink: #1C2A22;
+  --muted: #5E6B62;
   --red: #B3261E;
+
+  --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --sans: 'Libre Franklin', 'Helvetica Neue', Arial, sans-serif;
+
+  --radius: 4px;
+  --gutter: 16px;
+  --max: 760px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   background: var(--cream);
   color: var(--ink);
-  font-family: Georgia, serif;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--green);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* --- Header & navigation ------------------------------------------------------- */
+
+.site-header {
+  background: var(--green);
+  color: var(--cream);
+  text-align: center;
+  padding: 28px var(--gutter) 0;
+  border-bottom: 4px solid var(--gold);
+}
+
+.wordmark {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(1.45rem, 6vw, 2.4rem);
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.wordmark a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.tagline {
+  margin: 6px 0 18px;
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--gold);
+  font-size: 0.95rem;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.main-nav a {
+  padding: 10px 16px;
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.main-nav a:hover {
+  background: var(--green-dark);
+}
+
+.main-nav a[aria-current] {
+  background: var(--cream);
+  color: var(--green);
+}
+
+main {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter) 48px;
+}
+
+/* --- Tournament tabs ------------------------------------------------------------ */
+
+.event-tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 16px 0 12px;
+  scrollbar-width: thin;
+}
+
+.event-tab {
+  flex: 0 0 auto;
+  min-width: 42px;
+  padding: 8px 10px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+  color: var(--green);
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  border-radius: var(--radius);
+}
+
+.event-tab.phase-closed {
+  background: var(--green-tint);
+}
+
+.event-tab.phase-ongoing {
+  border-color: var(--gold);
+  box-shadow: inset 0 -3px 0 var(--gold);
+}
+
+.event-tab[aria-current] {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--white);
+}
+
+/* --- Event header --------------------------------------------------------------- */
+
+.event-header,
+.page-header {
+  text-align: center;
+  padding: 20px 0 8px;
+}
+
+.event-kicker {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.event-name,
+.page-header h2 {
+  margin: 4px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 7vw, 2.4rem);
+  line-height: 1.15;
+  color: var(--green);
+}
+
+.event-course {
+  margin: 4px 0 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 16px;
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.dots {
+  color: var(--green);
+  letter-spacing: 1px;
+}
+
+.event-badges {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px 0 0;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--cream-dark);
+  color: var(--ink);
+}
+
+.badge-gold {
+  background: var(--gold);
+  color: var(--green-dark);
+}
+
+.phase-badge.phase-ongoing {
+  background: var(--green);
+  color: var(--white);
+}
+
+.phase-badge.phase-closed {
+  background: var(--green-tint);
+  color: var(--green);
+}
+
+.countdown {
+  margin: 12px 0 0;
+  font-size: 0.95rem;
+}
+
+.countdown strong {
+  font-variant-numeric: tabular-nums;
+  color: var(--green);
+}
+
+.page-sub {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* --- Scoreboard ------------------------------------------------------------------ */
+
+.board {
+  margin-top: 16px;
+}
+
+.board-title {
+  margin: 0;
+  padding: 10px 14px;
+  background: var(--green);
+  color: var(--white);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: var(--radius) var(--radius) 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 16px;
+  border: 3px solid var(--green);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.board .table-wrap {
+  margin-top: 0;
+}
+
+.scoreboard {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.scoreboard th {
+  background: var(--green);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 8px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.scoreboard td {
+  padding: 10px 8px;
+  border-top: 1px solid var(--cream-dark);
+  white-space: nowrap;
+}
+
+.scoreboard .num {
+  text-align: right;
+  width: 1%;
+}
+
+.scoreboard th.pos {
+  color: var(--white);
+}
+
+.scoreboard .pos {
+  width: 1%;
+  text-align: center;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.scoreboard .player {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.92rem;
+}
+
+.scoreboard .pts,
+.scoreboard .total {
+  font-weight: 700;
+}
+
+.scoreboard .under-par {
+  color: var(--red);
+}
+
+.scoreboard tr.leader td {
+  background: var(--gold-soft);
+}
+
+.scoreboard tr.missed td {
+  color: var(--muted);
+}
+
+.scoreboard .dns {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.scoreboard .head-start {
+  color: var(--green);
+  font-weight: 700;
+}
+
+/* Grand Final cut line after 6th */
+.leaderboard tr.cut td {
+  border-bottom: 3px solid var(--gold);
+}
+
+.cut-legend {
+  display: inline-block;
+  width: 22px;
+  height: 0;
+  border-top: 3px solid var(--gold);
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.name-short {
+  display: none;
+}
+
+/* --- Played list ---------------------------------------------------------------- */
+
+.played-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--white);
+  border: 3px solid var(--green);
+  border-top: 0;
+  border-radius: 0 0 var(--radius) var(--radius);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.played-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--cream-dark);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.played-list li.has-played {
+  color: var(--ink);
+}
+
+.check {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border: 2px solid var(--cream-dark);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  color: var(--white);
+}
+
+.has-played .check {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+/* --- Final ------------------------------------------------------------------------ */
+
+.champion {
+  margin-top: 16px;
+  padding: 20px;
+  text-align: center;
+  background: var(--green);
+  color: var(--white);
+  border: 3px solid var(--gold);
+  border-radius: var(--radius);
+}
+
+.champion-kicker {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.champion-name {
+  margin: 6px 0 0;
+  font-family: var(--serif);
+  font-size: 1.8rem;
+}
+
+/* --- Notes ------------------------------------------------------------------------- */
+
+.note {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.note.error {
+  margin-top: 40px;
+  color: var(--red);
+}
+
+/* --- Rules -------------------------------------------------------------------------- */
+
+.rules-toc {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin: 16px 0 8px;
+}
+
+.rules-toc a {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  border-radius: 999px;
+}
+
+.rules-section {
+  margin-top: 28px;
+  scroll-margin-top: 12px;
+}
+
+.rules-section h3 {
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--green);
+  border-bottom: 2px solid var(--gold);
+}
+
+.rules-section h4 {
+  margin: 18px 0 6px;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.rules-section ul {
+  padding-left: 20px;
+}
+
+.rules-section li {
+  margin: 6px 0;
+}
+
+.rules-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.rules-table th {
+  background: var(--green);
+  color: var(--white);
+  text-align: left;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px;
+  white-space: nowrap;
+}
+
+.rules-table td {
+  padding: 8px;
+  border-top: 1px solid var(--cream-dark);
+  vertical-align: top;
+}
+
+.rules-table.calendar td:first-child,
+.rules-table.points td {
+  font-variant-numeric: tabular-nums;
+}
+
+.rules-table small {
+  color: var(--muted);
+}
+
+.formula {
+  padding: 12px 14px;
+  background: var(--white);
+  border-left: 4px solid var(--green);
+  font-family: var(--serif);
+}
+
+.rules-motto {
+  margin-top: 40px;
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--green);
+}
+
+/* --- Footer ----------------------------------------------------------------------- */
+
+.site-footer {
+  padding: 24px var(--gutter);
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border-top: 1px solid var(--cream-dark);
+}
+
+/* --- Small screens --------------------------------------------------------------- */
+
+@media (max-width: 520px) {
+  .name-full {
+    display: none;
+  }
+
+  .name-short {
+    display: inline;
+  }
+
+  .scoreboard th,
+  .scoreboard td {
+    padding: 9px 4px;
+  }
+
+  .scoreboard th {
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+  }
+
+  .scoreboard .opt {
+    display: none;
+  }
+
+  .scoreboard .player {
+    font-size: 0.85rem;
+  }
+
+  .main-nav a {
+    padding: 10px 10px;
+    letter-spacing: 0.08em;
+  }
+
+  .played-list {
+    grid-template-columns: 1fr;
+  }
 }

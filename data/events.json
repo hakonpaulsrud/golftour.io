@@ -1,0 +1,15 @@
+[
+  { "id": "01", "name": "Nordic Masters",       "course": "Lofoten Links",                    "start": "2026-11-01", "end": "2026-11-10", "difficulty": 3, "par": 72, "parConfirmed": false, "multiplier": 1 },
+  { "id": "02", "name": "Scottish Open",        "course": "St Andrews Links – Old Course",    "start": "2026-11-11", "end": "2026-11-20", "difficulty": 1, "par": 72, "parConfirmed": false, "multiplier": 1 },
+  { "id": "03", "name": "Autumn Championship",  "course": "The Fields GC",                    "start": "2026-11-21", "end": "2026-11-30", "difficulty": 3, "par": 72, "parConfirmed": false, "multiplier": 1 },
+  { "id": "04", "name": "Alpine Masters",       "course": "Évian Resort – Champions Course",  "start": "2026-12-01", "end": "2026-12-10", "difficulty": 4, "par": 72, "parConfirmed": false, "multiplier": 1 },
+  { "id": "05", "name": "Christmas Classic",    "course": "Black Desert Resort",              "start": "2026-12-11", "end": "2026-12-20", "difficulty": 3, "par": 72, "parConfirmed": false, "multiplier": 1.5 },
+  { "id": "06", "name": "New Year Open",        "course": "Abu Dhabi GC – National Course",   "start": "2027-01-02", "end": "2027-01-11", "difficulty": 3, "par": 72, "parConfirmed": false, "multiplier": 1 },
+  { "id": "07", "name": "January Championship", "course": "Miccosukee GCC – Marlin/Dolphin",  "start": "2027-01-12", "end": "2027-01-21", "difficulty": 4, "par": 72, "parConfirmed": false, "multiplier": 1 },
+  { "id": "08", "name": "Winter Major",         "course": "Bethpage Black",                   "start": "2027-01-22", "end": "2027-01-31", "difficulty": 5, "par": 72, "parConfirmed": false, "multiplier": 1.5 },
+  { "id": "09", "name": "Australian Open",      "course": "Royal Melbourne – Composite Course", "start": "2027-02-01", "end": "2027-02-10", "difficulty": 2, "par": 72, "parConfirmed": false, "multiplier": 1 },
+  { "id": "10", "name": "Desert Masters",       "course": "Silverleaf Club",                  "start": "2027-02-11", "end": "2027-02-20", "difficulty": 3, "par": 72, "parConfirmed": false, "multiplier": 1 },
+  { "id": "11", "name": "Desert Championship",  "course": "Royal Portrush – Dunluce Links",   "start": "2027-02-21", "end": "2027-03-02", "difficulty": 4, "par": 72, "parConfirmed": false, "multiplier": 1 },
+  { "id": "12", "name": "Tour Championship",    "course": "Marcella Club",                    "start": "2027-03-03", "end": "2027-03-12", "difficulty": 2, "par": 72, "parConfirmed": false, "multiplier": 2 },
+  { "id": "final", "name": "Grand Final",       "course": "Oakmont Country Club",             "start": "2027-03-20", "end": "2027-03-29", "difficulty": 5, "par": 72, "parConfirmed": false, "multiplier": 0 }
+]

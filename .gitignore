@@ -1,0 +1,9 @@
+# Private source material (emails) – never publish
+input/
+
+# Metis local database
+.metis/*.db
+.metis/*.db-*
+
+node_modules/
+.DS_Store
